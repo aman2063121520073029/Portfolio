@@ -344,73 +344,33 @@ h3 {
   text-align: center;
 }
 
-.skill-cards {
-  min-height: auto;
-  width: 100%;
-  background: #e6f0fa;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.skill-texts {
+.current-skills{
   height: auto;
-  width: 50%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  flex-direction: column;
-  background: #1a1a1ae6;
-  color: white;
-  padding: 1rem;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.skill-texts h3 {
-  color: #2772ff;
-}
-
-.skill-texts:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.1);
-}
-
-.skill-capsules {
   width: 100%;
   display: flex;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  margin-top: 1rem;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  background-color: #e6f0fa;
 }
-
-.capsule {
-  padding: 0.4rem;
-  color: #1a1a1a;
-  background: #fff;
-  border-radius: 15px;
+.current-skills h1{
+  border: 4px solid #1a1a1a;
+  padding: 0 0.5rem;
+}
+.skill-boxes{
+  height: auto;
+  width: auto;
+  padding: 1rem 0;
+  display: flex;
+  gap: 2rem;
+}
+.skill-box{
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.3s ease-in-out;
+  flex-direction: column;
+  font-size: clamp(2rem, 5vw, 7rem);
 }
-
-.capsule:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-@media (max-width: 430px) {
-  .skill-texts {
-    width: 90%;
-  }
-  .skill-capsules {
-    flex-wrap: wrap;
-  }
-}
-
 /* This is a form for contact which on submit sends me email, the logic will be on js or by elsewhere */
 
 .contact-form {
