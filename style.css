@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -25,11 +25,13 @@ h3 {
   font-size: clamp(2rem, 2.5vw, 3.2rem);
   font-weight: bold;
 }
+
 h3 {
   /* font-size: 1.75rem; */
   font-size: clamp(1.3rem, 1.6vw, 2rem);
   font-weight: 400;
 }
+
 /* This is where styling of navigation bar starts, and these comments are to divide the sections. */
 .nav-wrapper {
   position: fixed;
@@ -40,6 +42,7 @@ h3 {
   background-color: #1a1a1a;
   box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
 }
+
 .nav {
   height: 4rem;
   width: 100%;
@@ -144,6 +147,7 @@ h3 {
   from {
     --angle: 0deg;
   }
+
   to {
     --angle: 360deg;
   }
@@ -153,19 +157,51 @@ h3 {
 
 .projects-sidebar {
   height: 100vh;
-  width: 18vw;
+  width: 25vw;
   position: fixed;
-  right: 0;
+  right: -300px;
   background-color: #e6f0fa;
   z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: all 0.2s ease-in;
 }
 
-.hidden {
-  right: -300px;
+@media (max-width: 450px){
+  .projects-sidebar{
+    width: 90vw;
+  }
 }
+@media(min-width: 430px) and (max-width: 770px){
+  .projects-sidebar{
+    width: 50vw;
+  }
+}
+@media((min-width: 770px) and (max-width: 950px)){
+  .projects-sidebar{
+    width: 40vw;
+  }
+}
+.slide-in-animation {
+  right: 0;
+  position: absolute;
+  top: 0;
+}
+
+.slide-out-animation {
+  right: -400px;
+  position: absolute;
+  top: 0;
+}
+
+
+.hidden {
+  right: -400px;
+  position: fixed;
+  top: 0;
+}
+
 
 .projects-sidebar ul {
   width: 90%;
@@ -202,13 +238,27 @@ h3 {
   height: 100%;
 }
 
-.cross-sidebar {
+.close-button {
   width: 100%;
+}
+
+.close-sidebar {
+  width: auto;
   font-size: 2rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 1rem;
+  margin: 1rem;
+  padding: 0.3rem 0.5rem;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.close-sidebar:hover {
+  background: rgb(224, 224, 224);
+  transform: scale(1.05);
 }
 
 /* This section is hero section, the main section of the page as said */
@@ -247,17 +297,17 @@ h3 {
 .hero-banner {
   height: 100%;
   width: 100%;
-  background: linear-gradient(
-    135deg,
-    #e6f0fa 0%,
-    #a3bffa 50%,
-    #6b9cff 100%
-  ); /* Smoother gradient */
+  background: linear-gradient(135deg,
+      #e6f0fa 0%,
+      #a3bffa 50%,
+      #6b9cff 100%);
+  /* Smoother gradient */
   clip-path: polygon(0 0, 45% 0, 35% 100%, 0 100%);
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Below .hero-info */
+  z-index: 1;
+  /* Below .hero-info */
   /* padding: 0 13rem; */
   padding: 0 clamp(32px, 9vw, 200px);
 }
@@ -296,7 +346,7 @@ h3 {
 }
 
 .link1:hover,
-.link2:hover{
+.link2:hover {
   transform: scale(1.05);
   background: #f1f1f1;
 }
@@ -319,9 +369,11 @@ h3 {
   .hero-wrapper {
     flex-direction: column;
   }
+
   .hero-banner {
-    clip-path: polygon(0 73%, 100% 55%, 100% 100%, 0 100%);
+    clip-path: polygon(0 65%, 100% 50%, 100% 100%, 0 100%);
   }
+
   .hero-info {
     width: 100%;
     justify-content: flex-end;
@@ -355,7 +407,7 @@ h3 {
   text-align: center;
 }
 
-.current-skills{
+.current-skills {
   height: auto;
   width: 100%;
   display: flex;
@@ -364,24 +416,28 @@ h3 {
   flex-direction: column;
   background-color: #e6f0fa;
 }
-.current-skills h1{
+
+.current-skills h1 {
   border: 4px solid #1a1a1a;
   padding: 0 0.5rem;
 }
-.skill-boxes{
+
+.skill-boxes {
   height: auto;
   width: auto;
   padding: 1rem 0;
   display: flex;
   gap: 2rem;
 }
-.skill-box{
+
+.skill-box {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-size: clamp(2rem, 5vw, 7rem);
 }
+
 /* This is a form for contact which on submit sends me email, the logic will be on js or by elsewhere */
 
 .contact-form {
@@ -444,6 +500,7 @@ h3 {
     width: 80%;
   }
 }
+
 /* This is the end of the page which contains the credits and copyrights */
 
 .footer {
@@ -485,6 +542,7 @@ h3 {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .color-button::after,
   .color-button::before {
     animation: none;
