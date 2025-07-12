@@ -1,4 +1,4 @@
-/* These are universal styles which are applied to every content. */
+/* Universal Styles - Applied globally to ensure a clean slate */
 * {
   margin: 0;
   padding: 0;
@@ -6,41 +6,38 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Enables smooth scrolling for better UX */
 }
 
 body {
   width: 100%;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background-color: #fff;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Prevents horizontal overflow */
 }
 
+/* Typography - Consistent font styles for headings */
 h1,
 h3 {
-  font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
-  /* font-size: 2.5rem; */
-  font-size: clamp(2rem, 2.5vw, 3.2rem);
+  font-family: "Poppins", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(2rem, 2.5vw, 3.2rem); /* Responsive font sizing */
   font-weight: bold;
 }
 
 h3 {
-  /* font-size: 1.75rem; */
   font-size: clamp(1.3rem, 1.6vw, 2rem);
   font-weight: 400;
 }
 
-/* This is where styling of navigation bar starts, and these comments are to divide the sections. */
+/* Navigation Bar - Fixed header with shadow effect */
 .nav-wrapper {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 0 clamp(16px, 3vw, 50px);
+  padding: 0 clamp(16px, 3vw, 50px); /* Responsive padding */
   z-index: 800;
   background-color: #1a1a1a;
-  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .nav {
@@ -49,15 +46,16 @@ h3 {
   display: flex;
   align-items: center;
   color: #fff;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-content: flex-end;
   z-index: 0;
+  font-size: clamp(0.7rem, 1vw, 4rem); /* Responsive font scaling */
 }
 
 .nav a {
   height: 100%;
   text-decoration: none;
-  color: white;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,8 +68,7 @@ h3 {
   border: none;
   background-color: transparent;
   padding: 0.5rem;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   cursor: pointer;
   position: relative;
@@ -94,7 +91,7 @@ h3 {
 }
 
 .white-button a {
-  color: black;
+  color: #000;
 }
 
 .white-button:hover {
@@ -113,7 +110,7 @@ h3 {
 }
 
 .color-button a {
-  color: black;
+  color: #000;
 }
 
 @property --angle {
@@ -131,11 +128,11 @@ h3 {
   background-image: conic-gradient(from var(--angle), red, green, blue, red);
   top: 50%;
   left: 50%;
-  translate: -50% -50%;
+  transform: translate(-50%, -50%);
   border-radius: 15px;
   z-index: -1;
   padding: 3px;
-  animation: 3s spin linear infinite;
+  animation: spin 3s linear infinite;
 }
 
 .color-button::before {
@@ -147,14 +144,12 @@ h3 {
   from {
     --angle: 0deg;
   }
-
   to {
     --angle: 360deg;
   }
 }
 
-/* This is a sidebar which triggers when project button is clicked, until then it is hidden form the view */
-
+/* Projects Sidebar - Sliding panel for project links */
 .projects-sidebar {
   height: 100vh;
   width: 25vw;
@@ -166,42 +161,9 @@ h3 {
   flex-direction: column;
   align-items: center;
   transition: all 0.2s ease-in;
+  border-left: 3px solid rgba(0, 0, 0, 0.4);
+  box-shadow: -12px 0 1rem rgba(0, 0, 0, 0.2);
 }
-
-@media (max-width: 450px){
-  .projects-sidebar{
-    width: 90vw;
-  }
-}
-@media(min-width: 430px) and (max-width: 770px){
-  .projects-sidebar{
-    width: 50vw;
-  }
-}
-@media((min-width: 770px) and (max-width: 950px)){
-  .projects-sidebar{
-    width: 40vw;
-  }
-}
-.slide-in-animation {
-  right: 0;
-  position: absolute;
-  top: 0;
-}
-
-.slide-out-animation {
-  right: -400px;
-  position: absolute;
-  top: 0;
-}
-
-
-.hidden {
-  right: -400px;
-  position: fixed;
-  top: 0;
-}
-
 
 .projects-sidebar ul {
   width: 90%;
@@ -225,7 +187,7 @@ h3 {
 }
 
 .projects-sidebar li:hover {
-  background-color: rgb(242, 242, 243);
+  background-color: #f2f2f3;
   transform: scale(1.08);
 }
 
@@ -250,19 +212,52 @@ h3 {
   align-items: center;
   margin: 1rem;
   padding: 0.3rem 0.5rem;
-  background-color: white;
+  background-color: #fff;
   border: none;
   border-radius: 5px;
   transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .close-sidebar:hover {
-  background: rgb(224, 224, 224);
+  background: #e0e0e0;
   transform: scale(1.05);
 }
 
-/* This section is hero section, the main section of the page as said */
+.slide-in-animation {
+  right: 0;
+  top: 0;
+}
 
+.slide-out-animation {
+  right: -700px;
+  top: 0;
+}
+
+.hidden {
+  right: -700px;
+  top: 0;
+}
+
+/* Responsive Adjustments for Sidebar */
+@media (max-width: 450px) {
+  .projects-sidebar {
+    width: 90vw;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 770px) {
+  .projects-sidebar {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 770px) and (max-width: 950px) {
+  .projects-sidebar {
+    width: 40vw;
+  }
+}
+
+/* Hero Section - Main visual introduction */
 .hero-wrapper {
   height: 90vh;
   width: 100%;
@@ -274,20 +269,6 @@ h3 {
   flex-direction: row;
 }
 
-/* .hero-banner {
-  height: 90dvh;
-  width: 100%;
-  /* background-image: url("images/hero_banner.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center; 
-  background: linear-gradient(135deg, #e6f0fa, #1a1a1a);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 15rem;
-} */
-
 .hero-banner-1 {
   height: 100%;
   width: 100%;
@@ -297,18 +278,12 @@ h3 {
 .hero-banner {
   height: 100%;
   width: 100%;
-  background: linear-gradient(135deg,
-      #e6f0fa 0%,
-      #a3bffa 50%,
-      #6b9cff 100%);
-  /* Smoother gradient */
+  background: linear-gradient(135deg, #e6f0fa 0%, #a3bffa 50%, #6b9cff 100%);
   clip-path: polygon(0 0, 45% 0, 35% 100%, 0 100%);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
-  /* Below .hero-info */
-  /* padding: 0 13rem; */
   padding: 0 clamp(32px, 9vw, 200px);
 }
 
@@ -333,7 +308,7 @@ h3 {
 
 .links a {
   text-decoration: none;
-  color: black;
+  color: #000;
 }
 
 .link1,
@@ -357,14 +332,14 @@ h3 {
   padding: 0 clamp(32px, 9vw, 200px);
   padding-bottom: 0.3rem;
   background-color: #242424;
-  color: white;
+  color: #fff;
 }
 
 .hero-quote p {
-  font-family: "JetBrains Mono", "Fira Code", "Source Code Pro", Menlo, Consolas,
-    monospace;
+  font-family: "JetBrains Mono", "Fira Code", "Source Code Pro", Menlo, Consolas, monospace;
 }
 
+/* Hero Section Responsive Adjustments */
 @media (max-width: 430px) {
   .hero-wrapper {
     flex-direction: column;
@@ -382,16 +357,13 @@ h3 {
   }
 }
 
-/* Thsi section is about how I am in frontend development and this site iteself is made by me */
-
+/* About Me Section - Personal introduction */
 .about-me {
   padding: 2rem 0;
-  min-height: auto;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   flex-direction: column;
   background-color: #e6f0fa;
 }
@@ -407,8 +379,8 @@ h3 {
   text-align: center;
 }
 
+/* Current Skills Section - Showcase of abilities */
 .current-skills {
-  height: auto;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -423,8 +395,6 @@ h3 {
 }
 
 .skill-boxes {
-  height: auto;
-  width: auto;
   padding: 1rem 0;
   display: flex;
   gap: 2rem;
@@ -438,11 +408,9 @@ h3 {
   font-size: clamp(2rem, 5vw, 7rem);
 }
 
-/* This is a form for contact which on submit sends me email, the logic will be on js or by elsewhere */
-
+/* Contact Form - User interaction section */
 .contact-form {
   padding: 2rem clamp(32px, 9vw, 200px);
-  min-height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -468,8 +436,7 @@ h3 {
 .contact-form input,
 .contact-form textarea {
   padding: 0.8rem 1rem;
-  border-top: none;
-  border-right: none;
+  border: none;
   border-left: 3px solid #1a1a1a;
   border-bottom: 3px solid #1a1a1a;
   resize: none;
@@ -477,13 +444,11 @@ h3 {
 }
 
 .cts-button {
-  height: auto;
-  margin: 1rem auto 0 auto;
+  margin: 1rem auto 0;
   padding: 0.3rem clamp(0.5rem, 1vw, 2rem);
   font-size: clamp(1rem, 1.5vw, 2rem);
   background-color: rgba(230, 240, 250, 0.1);
-  border-top: none;
-  border-bottom: none;
+  border: none;
   border-left: 3px solid #1a1a1a;
   border-right: 3px solid #1a1a1a;
   transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -495,20 +460,19 @@ h3 {
   cursor: pointer;
 }
 
+/* Contact Form Responsive Adjustments */
 @media (max-width: 430px) {
   .contact-form form {
     width: 80%;
   }
 }
 
-/* This is the end of the page which contains the credits and copyrights */
-
+/* Footer - Credits and copyright */
 .footer {
   font-size: clamp(14px, 1vw, 1.4rem);
   background-color: #1a1a1a;
-  color: white;
+  color: #fff;
   display: flex;
-  height: auto;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -525,7 +489,7 @@ h3 {
 }
 
 .back-to-top a {
-  color: white;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -538,13 +502,13 @@ h3 {
 }
 
 .copyright a {
-  color: white;
+  color: #fff;
 }
 
+/* Accessibility - Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
-
-  .color-button::after,
-  .color-button::before {
+  .color-button::before,
+  .color-button::after {
     animation: none;
   }
 }
